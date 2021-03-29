@@ -24,7 +24,7 @@ const Tempdata =()=>{
     useEffect(()=>{
         const fetchapi =async()=>{
             // const API_KEY = process.env.REACT_APP_API_KEY;
-            const url = `http://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
             const response = await fetch(url);
             const rjson = await response.json();
             console.log(rjson);
