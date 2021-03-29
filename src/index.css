@@ -11,3 +11,542 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+*{
+  margin: 0;
+  padding:0;
+  box-sizing: border-box;
+  
+}
+html{
+  font-size: 62.5%;
+}
+.main{
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient( skyblue, orange);
+  display: flex;
+  flex-direction: column;
+  
+  justify-content: center;
+  align-items: center;
+}
+.main1{
+  width: 100vw;
+  height: 100vh;
+  background-image: linear-gradient(darkblue,purple);
+  background-size: cover;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainhtag i{
+  color: black;
+  font-size: 8rem;
+  animation: moon 2s linear infinite alternate;
+  margin-bottom: .51em;
+  margin-top: .5em;
+}
+
+@keyframes moon {
+  from {
+    transform: scale(1,1);
+  }
+
+  to {
+   transform: scale(1.3,1.3);
+   color: white;
+   
+  }
+}
+
+.mainhtag1 i{
+  color: white;
+  font-size: 8rem;
+  animation: sun 2s linear infinite alternate;
+  margin-bottom: .51em;
+  margin-top: .5em;
+}
+
+@keyframes sun {
+  from {
+    transform: scale(1,1);
+  }
+
+  to {
+   transform: scale(1.3,1.3);
+   color: orange;
+   
+  }
+}
+
+.box{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: black;
+  width: 30%;
+  height: 70vh;
+  border-radius: 2em;
+  background-image: url('../src/Images/cold-bg.jpg');
+  background-size: cover;
+}
+
+.box1{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: black;
+  width: 30%;
+  height: 70vh;
+  border-radius: 2em;
+  background-image: url('../src/Images/warm-bg.jpg');
+  background-size: cover;
+}
+
+.inputbox{
+  margin-top: 2em;
+}
+.inputbox input{
+  border-radius: 1em;
+  
+  width: 100%;
+  height: 5vh;
+  text-align: center;
+  background-color: lightcyan;
+}
+input:focus{
+  outline:none;
+}
+.location{
+  margin-top: 1.5em;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.info p{
+  text-align: center;
+  margin-top: 1.5em;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.temp{
+  margin-top: .51em;
+  text-align: center;
+  font-size: 4rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 3px 3px rgba(0, 0, 0, 0.2);
+  text-shadow: 3px 3px rgba(50, 50, 70, 0.5);
+  color: white;
+}
+
+.tempin_max{
+  margin-top:1.52em;
+  color: black;
+  font-size:2rem;
+}
+
+@keyframes drift {
+  from {
+    transform: translateX(-10%);
+  }
+
+  to {
+   transform: translateX(20%);
+
+  }
+}
+.location i{
+  font-size: 3rem;
+  animation: drift 2s linear infinite alternate;
+}
+.wheater_condition{
+  text-align: center;
+  margin-top: 1.5em;
+  font-size: 3rem;
+  animation: whetercond 2s linear infinite alternate;
+}
+
+@keyframes whetercond{
+  from{
+    transform: scale(1,1);
+    color:skyblue;
+  }
+  to{
+    transform: scale(1.3,1.3);
+    color: white;
+  }
+}
+/* ***************** media starts here **************************/
+/* ***************** media min:320px and max 480 **************************/
+
+@media (min-width:320px) and (max-width:480px){
+
+  .main{
+    display: flex;
+    flex-direction: column;
+    border:solid black;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .main1{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .mainhtag i{
+    font-size: 5rem;
+    margin-top: .51em;
+  }
+  
+  .mainhtag1 i{
+    font-size: 5rem;
+    margin-top: .51em;
+  }
+ 
+  .box{
+    width: 60%;
+    height: 70%;
+  }
+  
+  .box1{
+    width: 60%;
+    height: 70%;
+  }
+
+  .inputbox{
+    margin-top: 2em;
+  }
+  .inputbox input{
+    width: 100%;
+  }
+  
+  .location{
+    margin-top: 1em;
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .info p{
+    text-align: center;
+    margin-top: 1.5em;
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+  
+  .temp{
+    margin-top: .51em;
+    text-align: center;
+    font-size: 3.5rem;
+  }
+  
+  .tempin_max{
+    margin-top: 1.5em;
+    font-size: 1.5rem;
+   
+  }
+  
+  .wheater_condition{
+    text-align: center;
+    margin-top: 1em;
+    font-size: 3rem;
+    animation: whetercond 2s linear infinite alternate;
+  }
+  
+}
+
+/* ***************** media min:481px and max 768px **************************/
+
+@media (min-width:481px) and (max-width:767px){
+  .main{
+    display: flex;
+    flex-direction: column;
+    border:solid black;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .main1{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .mainhtag i{
+    font-size: 5rem;
+    margin-top: 1em;
+  }
+  
+  .mainhtag1 i{
+    font-size: 5rem;
+    margin-top: 1em;
+  }
+ 
+  .box{
+    width: 50%;
+    height: 60vh;
+  }
+  
+  .box1{
+    width: 50%;
+    height: 60vh;
+  }
+
+  .inputbox{
+    margin-top: 2em;
+  }
+  .inputbox input{
+    width: 100%;
+  }
+  
+  .location{
+    margin-top: 1em;
+    font-size: 2rem;
+    text-align: center;
+  }
+  
+  .info p{
+    text-align: center;
+    margin-top: 1.8em;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .temp{
+    margin-top: 1em;
+    text-align: center;
+    font-size: 4rem;
+  }
+  
+  .tempin_max{
+    margin-top: 3em;
+    font-size: 1.8rem;
+   
+  }
+  
+  .wheater_condition{
+    text-align: center;
+    margin-top: 1.5em;
+    font-size: 3rem;
+    animation: whetercond 2s linear infinite alternate;
+  }
+}
+/*************************tablet potrait************************/
+@media (min-width:768px) and (max-width:1024px){
+  .main{
+    display: flex;
+    flex-direction: column;
+    border:solid black;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .main1{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .mainhtag i{
+    font-size: 8rem;
+    margin-top: 1em;
+    margin-bottom: .71em;
+  }
+  
+  .mainhtag1 i{
+    font-size: 8rem;
+    margin-top: 1em;
+    margin-bottom: .71em;
+  }
+  .box{
+    width: 60%;
+    height: 60vh;
+    margin-top: 0;
+  }
+  
+  .box1{
+    width: 60%;
+    height: 60vh;
+    margin-top: 0;
+  }
+  .inputbox{
+    margin-top: 2em;
+  }
+  .inputbox input{
+    width: 100%;
+    font-size: 2.5rem;
+  }
+  .location{
+    margin-top: .51em;
+    font-size: 4rem;
+    text-align: center;
+  }
+  
+  .info p{
+    text-align: center;
+    margin-top: 1.5em;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .temp{
+    margin-top: 1em;
+    text-align: center;
+    font-size: 4.5rem;
+  }
+  
+  .tempin_max{
+    margin-top: 1.5em;
+    font-size: 2.5rem;
+   
+  }
+  
+  .wheater_condition{
+    text-align: center;
+    margin-top: 1.2em;
+    font-size: 3.5rem;
+    animation: whetercond 2s linear infinite alternate;
+  }
+  @keyframes whetercond{
+    from{
+      transform: scale(1,1);
+      color:black;
+    }
+    to{
+      transform: scale(1.3,1.3);
+      color: white;
+    }
+  }
+}
+
+/* ***************** media min:768px and max 1024px **************************/
+
+@media (min-width:768px) and (max-width:1024px) and (orientation: landscape){
+  .main{
+    display: flex;
+    flex-direction: column;
+    border:solid black;
+    justify-content: flex-start;
+    align-items: center;
+  }
+  .main1{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .mainhtag i{
+    font-size: 8rem;
+    margin-top: .51em;
+    margin-bottom: 0.5em;
+  }
+  
+  .mainhtag1 i{
+    font-size: 8rem;
+    margin-top: .51em;
+    margin-bottom: 0.5em;
+  }
+ 
+  .box{
+    width: 40%;
+    height: 90vh;
+  }
+  
+  .box1{
+    width: 40%;
+    height: 90vh;
+    margin-top: 0;;
+  }
+
+  .inputbox{
+    margin-top: 2em;
+  }
+  .inputbox input{
+    width: 100%;
+    font-size: 1.5rem;
+  }
+  
+  .location{
+    margin-top: .51em;
+    font-size: 3rem;
+    text-align: center;
+  }
+  
+  .info p{
+    text-align: center;
+    margin-top: 1.5em;
+    font-size: 1.8rem;
+    font-weight: bold;
+  }
+  
+  .temp{
+    margin-top: 1em;
+    text-align: center;
+    font-size: 4rem;
+  }
+  
+  .tempin_max{
+    margin-top: 1.5em;
+    font-size: 2rem;
+   
+  }
+  
+  .wheater_condition{
+    text-align: center;
+    margin-top: 1.2em;
+    font-size: 3rem;
+    animation: whetercond 2s linear infinite alternate;
+  }
+  @keyframes whetercond{
+    from{
+      transform: scale(1,1);
+      color:black;
+    }
+    to{
+      transform: scale(1.3,1.3);
+      color: white;
+    }
+  }
+}
+
+@media (min-width:1025px) and (max-width:1200px){
+  .inputbox input{
+    font-size: 2rem;
+  }
+}
+
+/* ***************** media min:769px and max 1024px **************************/
+
+@media (min-width:1201px){
+  .box{
+    width: 25%;
+  }
+  .box1{
+    width: 25%;
+  }
+
+  .inputbox input{
+    font-size:2rem;
+  }
+  .wheater_condition{
+    animation: whetercond 2s linear infinite alternate;
+  }
+  @keyframes whetercond{
+    from{
+      transform: scale(1,1);
+      color:black;
+    }
+    to{
+      transform: scale(1.3,1.3);
+      color: white;
+    }
+  }
+}
