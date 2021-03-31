@@ -77,11 +77,7 @@ const Tempdata =()=>{
                  min:{data.main.temp_min}°C || max:{data.main.temp_max}°C 
             </h3>
             <p className="sunrise_set"> Humidity : {data.main.humidity}% </p>
-          
-        
              <h3 className="wheater_condition">Weather : {data.weather[0].main}</h3> 
-            
-               
         </div>
         </>)):( !city.main?(<div className="nodata"><p className="nodata">No data found for your result 😞</p></div>):(<>
             <div className="info">
