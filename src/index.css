@@ -212,9 +212,7 @@ input:focus{
   .inputbox{
     margin-top: 2em;
   }
-  .inputbox input{
-    width: 100%;
-  }
+
   
   .location{
     margin-top: 1em;
@@ -273,9 +271,7 @@ input:focus{
   .inputbox{
     margin-top: 2em;
   }
-  .inputbox input{
-    width: 100%;
-  }
+ 
   
   .location{
     margin-top: 1em;
@@ -329,16 +325,14 @@ input:focus{
  
   .box{
     width: 80%;
-    height: 70%;
+    height: 75%;
   }
   
 
   .inputbox{
     margin-top: 2em;
   }
-  .inputbox input{
-    width: 100%;
-  }
+
   
   .location{
     margin-top: 1em;
@@ -400,9 +394,6 @@ input:focus{
   .inputbox{
     margin-top: 2em;
   }
-  .inputbox input{
-    width: 100%;
-  }
   
   .location{
     margin-top: 1em;
@@ -456,7 +447,7 @@ input:focus{
     margin-top: 2.5em;
   }
   .inputbox input{
-    width: 100%;
+ 
     font-size: 2.5rem;
   }
   .location{
@@ -516,7 +507,7 @@ input:focus{
     margin-top: 2em;
   }
   .inputbox input{
-    width: 100%;
+  
     height: auto;
     font-size: 2rem;
   }
