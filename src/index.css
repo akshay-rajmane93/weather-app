@@ -273,6 +273,7 @@ input:focus{
   .box{
     width: 80%;
     height: 75vh;
+    overflow-y: visible;
   }
   
 
@@ -333,7 +334,8 @@ input:focus{
  
   .box{
     width: 80%;
-    height: 65vh;
+    height: 70vh;
+    overflow-y: visible;
   }
   
 
