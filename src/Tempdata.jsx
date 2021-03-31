@@ -76,8 +76,8 @@ const Tempdata =()=>{
             <h3 className="tempin_max">
                  min:{data.main.temp_min}°C || max:{data.main.temp_max}°C 
             </h3>
-            <p className="sunrise_set"> Sunrise : {new Date(data.sys.sunrise*1000).toLocaleTimeString('en-IN')}</p>
-            <p className="sunrise_set"> Sunset : {new Date(data.sys.sunset*1000).toLocaleTimeString('en-IN')}</p>
+            <p className="sunrise_set"> Humidity : {data.main.humidity}°C </p>
+          
         
              <h3 className="wheater_condition">Weather : {data.weather[0].main}</h3> 
             
@@ -99,8 +99,8 @@ const Tempdata =()=>{
                  min:{city.main.temp_min}°C || max:{city.main.temp_max}°C 
 
             </h3>
-            <p className="sunrise_set"> Sunrise : {new Date(city.sys.sunrise*1000).toLocaleTimeString('en-IN')}</p>
-            <p className="sunrise_set"> Sunset : {new Date(city.sys.sunset*1000).toLocaleTimeString('en-IN')}</p>
+            <p className="sunrise_set"> Humidity : {data.main.humidity}°C </p>
+            
              <h3 className="wheater_condition">Weather : {city.weather[0].main}</h3> 
             
              
