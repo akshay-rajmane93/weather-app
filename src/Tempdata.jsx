@@ -3,72 +3,109 @@ import React, { useEffect, useState } from 'react';
 
 
 
+
+
 const Tempdata =()=>{
-    const [city,setCity]=useState({});
-    const[search,setSearch] = useState("pune");
-    const date = new Date().toDateString(); 
-    const otime = new Date().toLocaleTimeString();
-    const[time ,setTime] = useState(otime);
+  
+    const [lat, setLat] = useState([]);
+    const [long, setLong] = useState([]);
+    
+     const [city,setCity]=useState({});
+    const[search,setSearch] = useState("");
+   
+    const [data,setData]=useState({});
 
-    const Updatetime=()=>{
-        
-        let ntime = new Date().toLocaleTimeString();
-        setTime(ntime);
+    useEffect(() => {
+        const fetchdata =async()=>{
+            if(navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(function(position) {
+          setLat(position.coords.latitude);
+          setLong(position.coords.longitude);
+        })}
+        else{
+                setLat(18.5196);
+                setLong(73.8553);
+                alert("You have disabled location service.");
+            }
+        console.log("Latitude is:", lat);
+        console.log("Longitude is:", long);
+       const url = await fetch (`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&units=metric&appid=${process.env.REACT_APP_API_KEY}`);
+       const rjson = await url.json();
+       setData(rjson);
+       console.log(rjson);
     }
-
-    setInterval(Updatetime,1000);
-
-        const hour =new Date().getHours();
-
-
+    fetchdata();
+      }, [lat, long]);
+     
     useEffect(()=>{
         const fetchapi =async()=>{
-            // const API_KEY = process.env.REACT_APP_API_KEY;
-            const url = `https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
+             const url = `https://api.openweathermap.org/data/2.5/weather?q=${search}&units=metric&appid=${process.env.REACT_APP_API_KEY}`;
             const response = await fetch(url);
-            const rjson = await response.json();
-            console.log(rjson);
-            setCity(rjson);
-            console.log(rjson);
+            const resjson = await response.json();
+            console.log(resjson);
+            setCity(resjson);
+            console.log(resjson);
             console.log(process.env);
-
         };
         fetchapi();
     },[search])
+
     const inputval =(e)=>{
         setSearch(e.target.value);
     }
+
     return(<>
-        <div className={hour>6 && hour<18?"main":"main1"}>
-        {(hour>6 && hour<18)?<h3 className="mainhtag1"><i className="fas fa-sun" ></i> </h3>:
-            <h3 className="mainhtag"><i className="fas fa-moon" ></i> </h3>}
-        <div className={hour> 6 && hour <18 ?"box":"box1"} >
-       
+        <div className="main">
+        <div className="box">
             <div className="inputbox">
-                <input type="search" className="inputfeild" value={search} onChange={inputval}/>
+                <input type="search" className="inputfeild" value={search} onChange={inputval} placeholder="Enter City Name"/>
             </div>
-       {!city.main?(
-           <p>No data found for your result</p>
-       ):(
-           <>
-           <div className="info">
+            
+       {!search?(!data.main?(<div className="nodata1"><p className="loading"></p><p>Please Wait...</p></div>):(<>
+            <div className="info">
             <h2 className="location">
-                <i className="fas fa-street-view"></i> {search}, {city.sys.country}
+                <i className="fas fa-street-view"></i> {data.name},{data.sys.country}
             </h2>
-            <p> {date}</p>
-            <p>{time}</p>
+             
             <h1 className="temp">
-                {city.main.temp}°C
+            {data.main.temp>20?<i class="fas fa-thermometer-three-quarters"></i>:<i class="fas fa-thermometer-quarter"></i>}{data.main.temp}°C  
             </h1>
+            <div className="immg">
+            <img src={'https://openweathermap.org/img/wn/'+data.weather[0].icon+'.png'} alt=".."/>
+            </div>
             <h3 className="tempin_max">
-                min:{city.main.temp_min}°C || max:{city.main.temp_max}°C
+                 min:{data.main.temp_min}°C || max:{data.main.temp_max}°C 
+            </h3>
+            <p className="sunrise_set"> Sunrise : {new Date(data.sys.sunrise*1000).toLocaleTimeString('en-IN')}</p>
+            <p className="sunrise_set"> Sunset : {new Date(data.sys.sunset*1000).toLocaleTimeString('en-IN')}</p>
+        
+             <h3 className="wheater_condition">Weather : {data.weather[0].main}</h3> 
+            
+               
+        </div>
+        </>)):( !city.main?(<div className="nodata"><p className="nodata">No data found for your result 😞</p></div>):(<>
+            <div className="info">
+            <h2 className="location">
+                <i className="fas fa-street-view"></i> {city.name},{city.sys.country}
+            </h2>
+         
+            <h1 className="temp">
+            {city.main.temp >= 20?(<i className="fas fa-thermometer-three-quarters"></i>):(<i className="fas fa-thermometer-quarter"></i>)} {city.main.temp}°C 
+            </h1>
+            <div className="immg">
+            <img src={'https://openweathermap.org/img/wn/'+city.weather[0].icon+'.png'} alt=".."/>
+            </div>
+            <h3 className="tempin_max">
+                 min:{city.main.temp_min}°C || max:{city.main.temp_max}°C 
 
             </h3>
-            <h3 className="wheater_condition">{city.weather[0].main}</h3>
+            <p className="sunrise_set"> Sunrise : {new Date(city.sys.sunrise*1000).toLocaleTimeString('en-IN')}</p>
+            <p className="sunrise_set"> Sunset : {new Date(city.sys.sunset*1000).toLocaleTimeString('en-IN')}</p>
+             <h3 className="wheater_condition">Weather : {city.weather[0].main}</h3> 
+            
+             
         </div>
-           </>
-       )}
-        
+        </>))}
         </div>
         </div>
     </>);
