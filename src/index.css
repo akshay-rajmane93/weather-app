@@ -34,8 +34,7 @@ html{
   justify-content: center;
   align-items: center;
   background-blend-mode: multiply;
-  background-color: skyblue;
-  
+  background-color: lightyellow;
 }
 
 
@@ -61,6 +60,7 @@ html{
 }
 .inputbox input{
   border-radius: 1em;
+  font-size: 1.8rem;
   width: 100%;
   height: auto;
   text-align: center;
